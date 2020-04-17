@@ -1,4 +1,33 @@
-#app{
-    color: red;
-    font-size: 24px;
+body, html{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    background-color: rgb(30, 30, 30);
+    color: white;
+    display:flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    font-size:1.1rem;
+}
+.header-title, .header-menu-cart{
+    margin: 0 30px;
+    color:white;
+    text-decoration: none;
+    height:40px;
+    line-height: 40px;
+    padding:0 10px;
+}
+.header-title:hover , .header-menu:hover{
+    background-color: rgb(60, 60, 60);
+}
+.header-menu-num{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
 }
