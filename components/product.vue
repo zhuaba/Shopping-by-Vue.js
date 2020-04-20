@@ -51,7 +51,7 @@ export default {
 }
 .product-img{
     width:100%;
-
+    border-radius: 3px;
 }
 h4{
     color:black;

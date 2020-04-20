@@ -52,7 +52,7 @@ const store = new Vuex.Store({
         },
         addToCart(state, id){
             const index = state.cartList.findIndex((item)=>(item.id === id))
-            if(index > 0){
+            if(index >= 0){
                 state.cartList[index].count++;
             }else{
                 state.cartList.push({
@@ -60,6 +60,21 @@ const store = new Vuex.Store({
                     count: 1
                 });
             }
+        },
+        handleCart(state, payload){
+            if(payload.num < 0 && state.cartList[payload.index].count == 1){
+                return;
+            }else{
+                state.cartList[payload.index].count += payload.num;
+            }
+        },
+        deleteCart(state, id){
+            let index = state.cartList.findIndex(item => item.id === id);
+            state.cartList.splice(index, 1);
+        },
+        emptyCart(state){
+            console.log("emptyCart has been done");
+            state.cartList = [];
         }
     },
     actions: {
@@ -67,6 +82,14 @@ const store = new Vuex.Store({
             setTimeout(()=>{
                 context.commit('setProductList', product_data);
             },500)
+        },
+        buy(context){
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    context.commit("emptyCart");
+                    resolve();
+                },500);
+            });
         }
     }
 })

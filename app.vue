@@ -18,6 +18,9 @@ export default {
         cartListNum() {
             return this.$store.state.cartList.length;
         }
+    },
+    mounted(){
+        this.$store.dispatch("getProductList");
     }
 }
 </script>

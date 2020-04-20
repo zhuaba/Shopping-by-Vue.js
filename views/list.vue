@@ -14,16 +14,23 @@
                 <div v-for="item in colors" 
                     @click="handleFilterColor(item)"
                     class="color"
+                    :class = "{on: item === filterColor}"
                     :key="item">{{item}}</div>
             </div>
             <div class="sort">
                 <span>排序：</span>
-                <div class="sort-item" @click="handleSortDefault">默认</div>
-                <div class="sort-item" @click="handleSortSales">
+                <div class="sort-item" 
+                    :class = "{on: order === 'default'}"
+                    @click="handleSortDefault">默认</div>
+                <div class="sort-item"
+                    :class = "{on: order === 'sales'}"
+                     @click="handleSortSales">
                     销量
                     <span v-if="order==='sales-desc'">↓</span>
                 </div>
-                <div class="sort-item" @click="handleSortPrice">
+                <div class="sort-item" 
+                    :class = "{on: order.indexOf('price')>-1}"
+                    @click="handleSortPrice">
                     价格
                     <span v-if="order==='price-asc'">↑</span>
                     <span v-if="order==='price-desc'">↓</span>
@@ -41,7 +48,7 @@ export default {
         return {
             filterBrand: '',
             filterColor: '',
-            order: ''
+            order: 'default'
         }
     },
     computed:{
@@ -78,14 +85,14 @@ export default {
         }
     },
     mounted(){
-        this.$store.dispatch("getProductList");
+        //this.$store.dispatch("getProductList");
     },
     methods: {
         handleFilterBrand(brand){
-            this.filterBrand = brand;
+            this.filterBrand = this.filterBrand === brand ? "" : brand;
         },
         handleFilterColor(color){
-            this.filterColor = color;
+            this.filterColor = this.filterColor === color ? "" : color;
         },
         handleSortDefault(){
             this.order = "default";
@@ -120,9 +127,10 @@ export default {
     border-radius: 3px;
     padding:2px 4px;
 }
-.brand.on{
+.brand.on, .brand.on:hover,.color.on, .color.on:hover,.sort-item.on, .sort-item.on:hover{
     background: red;
     color: white;
+    border: 1px solid red;
 }
 .brand:hover, .color:hover, .sort-item:hover{
     background: #e0e0e0;
