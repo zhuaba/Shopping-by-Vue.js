@@ -3,7 +3,7 @@
         <div class="product-info">
             <img :src="getProductInfo.image">
             <div class="product-info-detail">
-                <h1>{{getProductInfo.name}}</h1>
+                <h2>{{getProductInfo.name}}</h2>
                 <div class="product-price">￥{{getProductInfo.cost}}</div>
                 <div @click="handleAddCart" class="product-addCart">加入购物车</div>
             </div>
@@ -37,47 +37,55 @@ export default {
     }
 }
 </script>
-<style scoped>
-.product-info, .product-intro{
-    margin: 40px;
-    padding:15px;
+<style scoped lang="less">
+.temp{
+    margin: 2.5em;
+    padding: 1em;
     border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 0.3125em;
     position: relative;
 }
 .product-info{
+    .temp;
     box-sizing: border-box;
     display: flex;
     align-items:center;
-}
-img{
-    width:70%;
-}
-.product-info-detail{
-    float:right;
-    width:30%;
-    text-align:center;
-}
-.product-price{
-    color:red;
-    margin: 1em auto;
-    font-size: 1.5rem;
-}
-.product-addCart{
-    background: #0070c9;
-    color: white;
-    font-size:1.5rem;
-    width:10em;
-    border-radius: 1.5em;
-    margin:auto;
-    padding:0.25em;
+    img{
+        width:70%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.25em;
+    }
+    .product-info-detail{
+        width:30%;
+        text-align:center;
+        padding-bottom: 0.75em;
+        h2{
+            margin: 0.5em auto;
+        }
+        .product-price{
+            color:red;
+            margin: 0.5em auto;
+            font-size: 1.5rem;
+        }
+        .product-addCart{
+            background: #0070c9;
+            color: white;
+            font-size:1.5rem;
+            width:8em;
+            border-radius: 1.5em;
+            margin:auto;
+            padding:0.25em;
+        }
+    }
 }
 .product-intro{
+    .temp;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.product-intro img{
-    width:30%;
+    img{
+        width: 30%;
+    }
 }
 </style>

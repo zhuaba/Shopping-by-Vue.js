@@ -5,7 +5,7 @@ import Routers from './router.js';
 import App from './app.vue';
 import product_data from "./product.js"
 
-import './style.css';
+import './style.less';
 Vue.use(VueRouter);
 Vue.use(Vuex);
 

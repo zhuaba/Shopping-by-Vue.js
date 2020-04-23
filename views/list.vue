@@ -37,7 +37,10 @@
                 </div>
             </div>
         </div>
-        <Product v-for="item in filterdProducts" :info="item" :key="item.id"></Product>
+        <div class="list-goods">
+            <Product v-for="item in filterdProducts" :info="item" :key="item.id"></Product>
+        </div>
+        
     </div>
 </template>
 <script>
@@ -110,29 +113,45 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style scoped lang="less">
 .list-control{
-    height:160px;
-    margin:5px 10px;
+    margin:1em 0.75em 0.5em;
     border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 0.5em;
+    .brands{
+        display: flex;
+        margin: 1.25em;
+        .brand{
+            margin: 0 0.3125em;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.1875em;
+            padding:0.125em 0.25em;
+            &:hover{
+                background: #e0e0e0;
+            }
+            &.on, &.on:hover{
+                background: red;
+                color: white;
+                border: 1px solid red;
+            }
+        }
+    }
+    .colors{
+        .brands;
+        .color{
+            .brands .brand;
+        }
+    }
+    .sort{
+        .brands;
+        .sort-item{
+            .brands .brand;
+        }
+    }
 }
-.brands, .colors, .sort{
+.list-goods{
     display: flex;
-    margin: 20px;
-}
-.brand, .color, .sort-item{
-    margin: 0 5px;
-    border: 1px solid #e0e0e0;
-    border-radius: 3px;
-    padding:2px 4px;
-}
-.brand.on, .brand.on:hover,.color.on, .color.on:hover,.sort-item.on, .sort-item.on:hover{
-    background: red;
-    color: white;
-    border: 1px solid red;
-}
-.brand:hover, .color:hover, .sort-item:hover{
-    background: #e0e0e0;
+    flex-wrap: wrap;
+    margin: 0 0.75em;
 }
 </style>

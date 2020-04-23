@@ -1,0 +1,47 @@
+:root{
+    box-sizing: border-box;
+}
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+body, html{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    height: 2.5em;
+    background-color: rgb(30, 30, 30);
+    .header-title{
+        margin: 0 1.875em;
+        color: white;
+        text-decoration: none;
+        height: 2.5em;
+        line-height: 2.5;
+        padding:0 0.625em;
+        &:hover{
+            background-color: rgb(60, 60, 60);
+        }
+    }
+    .header-menu{
+        &:hover{
+            background-color: rgb(60, 60, 60);
+        }
+        .header-menu-cart{
+            .header-title;
+            .header-menu-num{
+                width: 1.25em;
+                height: 1.25em;
+                border-radius: 50%;
+                background-color: red;
+                text-align: center;
+                display: inline-block;
+                line-height: 1.25;
+            }
+        }
+    }
+}

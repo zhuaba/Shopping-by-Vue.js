@@ -17,6 +17,10 @@ var config = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
+                        less: ExtractTextPlugin.extract({
+                            use:['css-loader', 'less-loader'],
+                            fallback: 'vue-style-loader'
+                        }),
                         css: ExtractTextPlugin.extract({
                             use: 'css-loader',
                             fallback: 'vue-style-loader'
@@ -28,6 +32,13 @@ var config = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.less/,
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader','less-loader'],
+                    fallback: 'style-loader'
+                })
             },
             {
                 test: /\.css$/,

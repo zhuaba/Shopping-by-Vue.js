@@ -18,7 +18,7 @@
             <div class="cart-header-price">￥{{productDic[item.id].cost}}</div>
             <div class="cart-header-count">
                 <span @click="handleProductCount(-1,index)">-</span>
-                {{item.count}}
+                <span>{{item.count}}</span>
                 <span @click="handleProductCount(1,index)">+</span>
             </div>
             <div class="cart-header-total">￥{{item.count * productDic[item.id].cost}}</div>
@@ -104,86 +104,88 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style scoped lang="less">
     .cart{
-        max-width:1080px;
-        margin: 3.125em auto;
+        max-width: 86vw;
+        margin: 1.5em 7vw;
         border-radius: 1em;
         border: 1px solid #e0e0e0;
-
-    }
-    .cart-header, .cart-goods{
-        display:flex;
-        justify-content: space-between;
-        text-align: center;
-    }
-    .cart-goods{
-        border-bottom: 1px dashed #e0e0e0;
-    }
-    .cart-header{
-        background:#e0e0e0;
-    }
-    .cart-title{
-        font-size:1.25rem;
-        margin: 0.5em;
-    }
-    [class*="cart-header-"]{
-        width:10em;
-        display: flex;
-        align-items:center;
-        justify-content: center;
-        padding: 0.5em 0;
-    }
-    .cart-header-info{
-        width:30em;
-        justify-content: left;
-        text-align: left;
-        margin-left: 2em;
-    }
-    .cart-header-info img{
-        width:3em;
-        height:3em;
-    }
-    .cart-header-count span{
-        width: 1.25em;
-        height: 1.25em;
-        border-radius: 50%;
-        border: 1px solid #e0e0e0;
-        text-align:center;
-        line-height: 1;
-        cursor: pointer;
-    }
-    .cart-goods .cart-header-delete{
-        color: #0070c9;
-        cursor: pointer;
-    }
-    .empty-cart{
-        margin: 1em;
-        text-align: center;
-    }
-    .cart-pay-info{
-        margin: 0 2em 2em 0;
-        float:right;
-    }
-    .cart-pay-info div{
-        display: inline-block;
-        margin-left: 1em;
-    }
-    .cart-pay{
-        overflow: auto;
-    }
-    .cart-pay-promotion{
-        margin: 2em 2em;
-    }
-    .cart-pay-verify{
-        background: #2d8cf0;
-        color: white;
-        padding: 0.2em 0.5em;
-        border-radius: 0.5em;
-        margin-left: 1em;
-    }
-    .cart-pay-info span{
-        color: red;
-        font-size: 1.25rem;
+        .cart-title{
+            font-size:1.25rem;
+            margin: 0.5em;
+        }
+        .cart-header, .cart-goods{
+            display:flex;
+            justify-content: space-between;
+            text-align: center;
+            background: #e0e0e0;
+            [class*="cart-header-"]{
+                width:10em;
+                display: flex;
+                align-items:center;
+                justify-content: center;
+                padding: 0.5em 0;
+            }
+            .cart-header-info{
+                width:30em;
+                justify-content: left;
+                text-align: left;
+                margin-left: 2em;
+                img{
+                    width:3em;
+                    height:3em;
+                }
+            }
+            .cart-header-count span:nth-child(odd){
+                width: 1.25em;
+                height: 1.25em;
+                border-radius: 50%;
+                border: 1px solid #e0e0e0;
+                text-align:center;
+                line-height: 1;
+                margin: 0 0.5em;
+                cursor: pointer;
+                &:hover{
+                    background: #e0e0e0;
+                }
+            }
+        }
+        .cart-goods{
+            background: #fff;
+            border-bottom: 1px dashed #e0e0e0;
+            .cart-header-delete{
+                color: #0070c9;
+                cursor: pointer;
+            }
+        }
+        .empty-cart{
+            margin: 1em;
+            text-align: center;
+        }
+        .cart-pay{
+            overflow: auto;
+            .cart-pay-info{
+                margin: 0 2em 2em 0;
+                float:right;
+                div{
+                    display: inline-block;
+                    margin-left: 1em;
+                }
+                span{
+                    color: red;
+                    font-size: 1.25rem;
+                }
+            }
+            .cart-pay-promotion{
+                margin: 2em 2em;
+            }
+            .cart-pay-verify{
+                background: #2d8cf0;
+                color: white;
+                padding: 0.2em 0.5em;
+                border-radius: 0.5em;
+                margin-left: 1em;
+            }
+        }
     }
 </style>
