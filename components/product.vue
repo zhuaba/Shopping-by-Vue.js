@@ -4,7 +4,7 @@
             <img :src="info.image" class="product-img">
             <div @click.prevent="handleAddCart" class="product-button">加入购物车</div>
             <h4>{{info.name}}</h4>
-            颜色：<div class="product-color" :style="{backgroundColor: colors[info.color], borderColor:colors[info.color]==='#ffffff'?'#000':colors[info.color]}"></div>
+            颜色：<div class="product-color" :style="{backgroundColor: colors[info.color], borderColor:colors[info.color]==='#ffffff'?'#e0e0e0':colors[info.color]}"></div>
             <div class="product-price">￥{{info.cost}}</div>
         </router-link>
     </div>
